@@ -1,0 +1,11 @@
+apply plugin: 'java'
+apply plugin: 'asm-plugin'
+
+dependencies {
+    implementation project(':compiler:annotation')
+    implementation project(':compiler:utils')
+
+    implementation 'org.javassist:javassist:3.27.0-GA'
+
+    annotationProcessor project(':compiler:sample')
+}

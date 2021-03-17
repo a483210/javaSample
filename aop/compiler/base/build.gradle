@@ -1,0 +1,13 @@
+import org.gradle.internal.jvm.Jvm
+
+apply plugin: 'java'
+
+dependencies {
+    compile project(':compiler:utils')
+
+    compile 'com.squareup:javapoet:1.11.1'
+
+    compile 'com.github.javaparser:javaparser-core:3.14.13'
+
+    compile files(Jvm.current().toolsJar)
+}

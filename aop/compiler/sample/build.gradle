@@ -1,0 +1,7 @@
+apply plugin: 'java'
+
+dependencies {
+    implementation project(':compiler:base')
+
+    implementation project(':compiler:annotation')
+}

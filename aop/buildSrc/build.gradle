@@ -1,0 +1,6 @@
+sourceSets {
+    main {
+        groovy.srcDirs = ['../compiler/asm/src/main/groovy']
+        resources.srcDirs = ['../compiler/asm/src/main/resources']
+    }
+}
