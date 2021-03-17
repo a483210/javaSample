@@ -7,6 +7,7 @@ import com.psd.aop.sample.bean.AstBean;
 import com.psd.aop.sample.utils.JavassistUtils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -45,6 +46,10 @@ public class MainApplication {
             String path = getPath(mainPath, 4);
 
             String filePath = path + "/libs/script.sh";
+            if (!new File(filePath).exists()) {
+                System.out.println("script.sh文件不存在");
+                return;
+            }
 
             runCmd("chmod a+x " + filePath);
             runCmd(filePath);
