@@ -1,5 +1,7 @@
 package com.psd.aop.sample;
 
+import com.psd.aop.sample.annotation.PolicyClassAnnotation;
+import com.psd.aop.sample.annotation.PolicySourceAnnotation;
 import com.psd.aop.sample.bean.AptBean;
 import com.psd.aop.sample.bean.AptBeanImpl;
 import com.psd.aop.sample.bean.AsmBean;
@@ -17,6 +19,8 @@ import java.nio.charset.StandardCharsets;
  *
  * @author Created by gold on 2021/3/14 19:01
  */
+@PolicyClassAnnotation
+@PolicySourceAnnotation
 public class MainApplication {
 
     public static void main(String[] args) throws Exception {

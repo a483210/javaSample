@@ -15,6 +15,6 @@ public @interface PolicySourceAnnotation {
     /**
      * 值
      */
-    String value();
+    String value() default "";
 
 }
