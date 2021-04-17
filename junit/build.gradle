@@ -1,0 +1,37 @@
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+buildscript {
+    ext {
+        junitVersion = '5.7.1'
+        assertjVersion = '3.19.0'
+        mockitoVersion = '3.6.28'
+        powerMockVersion = "2.0.9"
+        jmockitVersion = '1.49'
+
+        springBootVersion = '2.4.5'
+        springDependencyVersion = '1.0.11.RELEASE'
+
+        validationVersion = '2.0.1.Final'
+        gsonVersion = '2.8.6'
+
+        lombokVersion = '1.18.8'
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    configurations.all {
+        exclude group: 'com.fasterxml.jackson.core'
+        exclude group: 'com.fasterxml.jackson.datatype'
+        exclude group: 'com.fasterxml.jackson.module'
+    }
+}

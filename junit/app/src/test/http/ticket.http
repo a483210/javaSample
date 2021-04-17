@@ -1,0 +1,15 @@
+#买票
+POST http://localhost:8112/v1/ticket/buy
+content-type: application/json
+
+{
+  "userId": 1,
+  "ticketId": 1,
+  "number": 1
+}
+
+> {%
+client.test("Req ues executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}

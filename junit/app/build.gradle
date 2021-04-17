@@ -1,0 +1,54 @@
+plugins {
+    id 'org.springframework.boot' version "$springBootVersion"
+    id 'io.spring.dependency-management' version "$springDependencyVersion"
+}
+
+dependencies {
+    //junit
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+
+    //测试校验工具
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
+
+    //mock工具 asm实现
+    testImplementation "org.jmockit:jmockit:$jmockitVersion"
+
+    //mock工具
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    testImplementation "org.powermock:powermock-api-mockito2:$powerMockVersion"
+    testImplementation "org.powermock:powermock-module-junit4:$powerMockVersion"
+
+    //spring测试包
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //依赖包
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation "javax.validation:validation-api:$validationVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    //lombok
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+}
+
+//用于junit4测试
+test {
+    group = "test"
+
+    jvmArgs "-javaagent:${classpath.find { it.name.contains("jmockit") }.absolutePath}"
+
+    filter {
+        excludeTestsMatching "*Test"
+    }
+}
+
+//用于junit5测试
+task test5(type: Test) {
+    group = "test"
+
+    useJUnitPlatform()
+
+    filter {
+        excludeTestsMatching "*Test4"
+    }
+}
