@@ -79,7 +79,7 @@ public class CoinServiceTest {
     @Test
     public void testIncrementByLargeAmount() {
         assertThatThrownBy(() -> {
-            coinService.increment(userId, 500 * 10000L);
+            coinService.increment(userId, 50 * 10000L);
         })
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("金额");

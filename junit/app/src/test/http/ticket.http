@@ -1,6 +1,6 @@
 #买票
 POST http://localhost:8112/v1/ticket/buy
-content-type: application/json
+Content-Type: application/json
 
 {
   "userId": 1,
